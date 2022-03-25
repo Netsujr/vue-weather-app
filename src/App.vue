@@ -11,11 +11,8 @@
           <div class="date">Monday</div>
         </div>
         <div class="weather-box">
-          <div class="temp">
-            <div class="temp-num">23</div>
-            <div class="temp-unit">°C</div>
-            <div class="weather">Rain</div>
-          </div>
+          <div class="temp">23°C</div>
+          <div class="weather">Rain</div>
         </div>
       </div>
     </main>
@@ -92,10 +89,32 @@ main {
 
 .location-box .location {
   color: #fff;
-  font-size: 20px;
+  font-size: 90px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: 0 0 5px #000;
+}
+
+.location-box .date {
+  color: #fff;
+  font-size: 44px;
+  text-align: center;
+  text-shadow: 0 0 5px #000;
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temp {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 90px;
+  font-weight: bold;
   text-shadow: 0 0 5px #000;
 }
 </style>

@@ -12,7 +12,7 @@
         />
       </div>
 
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined' ">
+      <div class="weather-wrap" v-if="(typeof weather.main) != 'undefined' " >
         <div class="location-box">
           <div class="location">
             {{ weather.name }}, {{ weather.sys.country }}
@@ -148,7 +148,7 @@ main {
 
 .search-box .search-bar:focus {
   outline: none;
-  border-color: #00bcd4;
+  border: 1px solid #00bcd4;
 }
 
 .location-box .location {

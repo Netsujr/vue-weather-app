@@ -24,7 +24,11 @@ export default {
   name: "app",
   data() {
     return {
-      api_key: "",
+      api_key: process.env.VUE_APP_WEATHER_API_KEY,
+      url_base: "https://api.openweathermap.org/data/2.5/",
+      query: "",
+      weather: {},
+
     };
   },
 };
@@ -66,7 +70,7 @@ main {
 }
 
 .search-box {
-  width: 100%;
+  width: 50%;
   margin-bottom: 20px;
 }
 
@@ -105,16 +109,30 @@ main {
 
 .weather-box {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .weather-box .temp {
   display: inline-block;
+  width: fit-content;
   padding: 10px 25px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 90px;
   font-weight: bold;
+  text-shadow: 3px 5px #000;
+  box-shadow: 3px 5px #000;
+  margin: 10px;
+}
+
+.weather-box .weather {
+  color: #ccc;
+  font-size: 44px;
+  font-weight: bold;
+  font-style: italic;
   text-shadow: 0 0 5px #000;
 }
 </style>

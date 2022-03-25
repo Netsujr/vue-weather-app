@@ -1,23 +1,26 @@
 <template>
   <div id="app">
     <main>
+      <div class="title">Weather App</div>
       <div class="search-box">
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search city/country..."
           class="search-bar"
           v-model="query"
           @keypress="fetchWeather"
         />
       </div>
 
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+      <div class="weather-wrap" v-if="typeof weather.main != 'undefined' ">
         <div class="location-box">
-          <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
+          <div class="location">
+            {{ weather.name }}, {{ weather.sys.country }}
+          </div>
           <div class="date">{{ dateBuilder() }}</div>
         </div>
         <div class="weather-box">
-          <div class="temp">{{Math.round(weather.main.temp)}}°C</div>
+          <div class="temp">{{ Math.round(weather.main.temp) }}°C</div>
           <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
@@ -38,7 +41,7 @@ export default {
   },
   methods: {
     fetchWeather(e) {
-      if (e.key == 'Enter') {
+      if (e.key == "Enter") {
         const url = `${this.url_base}weather?q=${this.query}&units=metric&appid=${this.api_key}`;
         fetch(url)
           .then((response) => response.json())
@@ -99,8 +102,13 @@ body {
   background: #fafafa;
 }
 
+.title {
+  color: white;
+  font-size: 20px;
+}
+
 #app {
-  background-image: url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("assets/kitty.jpeg");
   background-size: cover;
   background-position: bottom;
   transition: all 0.5s ease;
@@ -109,12 +117,13 @@ body {
 main {
   min-height: 100vh;
   padding: 20px;
+  background-size: cover;
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-    url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    url("assets/kitty.jpeg");
   display: flex;
   flex-direction: column;
   align-items: center;
